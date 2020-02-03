@@ -1,0 +1,58 @@
+intents:
+  - chitchat:
+      use_entities: []
+  - inform
+  - affirm
+  - deny
+  - stop
+  - thankyou
+  - greet
+  - bot_challenge
+
+entities:
+  - bug
+  - beverage
+  - second_person_plural
+
+slots:
+  bug:
+    type: unfeaturized
+    auto_fill: false
+  beverage:
+    type: unfeaturized
+    auto_fill: false
+  second_person_plural:
+    type: unfeaturized
+    auto_fill: false
+
+responses:
+  utter_start_quiz:
+    - text: "do you to take a quiz to learn more about where in the United States people talk the most like you?"
+  utter_ask_bug:
+    - text: "What do you call the small bug (technically a crustacean) that’s often found under logs and can roll into a little ball?"
+  utter_ask_beverage:
+    - text: "What do you call a sweet, carbonated beverage?"
+  utter_ask_second_person_plural:
+    - text: "How do you address a group of two or more people? As in “Are ___ ready to go?”"
+  utter_submit:
+    - text: "All done!"
+  utter_slots_values:
+    - text: "Here are your answers:\n
+             - bug: {bug}\n
+             - beverage: {beverage}\n
+             - second_person_plural: {second_person_plural}"
+  utter_noworries:
+    - text: "you are welcome :)"
+  utter_chitchat:
+    - text: "chitchat"
+  utter_ask_continue:
+    - text: "do you want to continue?"
+  utter_default:
+    - text: "sorry, I didn't understand you, please try input something else"
+  utter_greet:
+    - text: "Hello! This is dialect bot"
+  utter_iamabot:
+    - text: "I am a bot, powered by Rasa."
+
+forms:
+  - elicitation_form
