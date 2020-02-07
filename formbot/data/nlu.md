@@ -48,6 +48,10 @@
 - right on
 - i love that
 - heck yeah
+- sure
+- yes!
+- yep!
+- yep
 
 ## intent:deny
 - no
@@ -61,6 +65,8 @@
 - nope
 
 ## intent:inform
+- [potato bug](bug)
+- [rolly polly](bug)
 - that's a [wood bug](bug)
 - i'd call that a [pillbug](bug)
 - I'd call that [rolly polly](bug)
@@ -76,6 +82,9 @@
 - Are [yinz](second_person_plural) ready to go
 - I'd say [you](second_person_plural)
 - like [you guys](second_person_plural)
+- probably [yous guys](second_person_plural)
+- [you](second_person_plural)
+- [you guys](second_person_plural)
 
 ## intent:thankyou
 - um thank you good bye
@@ -165,6 +174,10 @@
 - and you call yourself bot company? pff
 - and that's it?
 - nothing else?
+- I want to stop
+- stop
+- quit
+- sotp
 
 ## intent:bot_challenge
 - are you a bot?
