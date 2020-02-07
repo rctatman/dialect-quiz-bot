@@ -7,6 +7,8 @@
     - form{"name": "elicitation_form"}
     - form{"name": null}
     - utter_slots_values
+    - detect_dialect
+    - utter_dialect_value
 * thankyou
     - utter_noworries
 

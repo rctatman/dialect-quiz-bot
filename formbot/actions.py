@@ -1,9 +1,9 @@
 from typing import Dict, Text, Any, List, Union, Optional
 
-from rasa_sdk import Tracker
+from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.forms import FormAction
-
+from rasa_sdk.events import SlotSet
 
 class ElicitationForm(FormAction):
     """Example of a custom form action"""
@@ -50,3 +50,24 @@ class ElicitationForm(FormAction):
         # utter submit template
         dispatcher.utter_message(template="utter_submit")
         return []
+
+
+class DetectDialect(Action):
+    """Detect the users dialect"""
+
+    def name(self) -> Text:
+        """Unique identifier of the form"""
+
+        return "detect_dialect"
+
+    def run(self, dispatcher, tracker, domain):
+        """place holder method for guessing dialect """
+        # let user know the analysis is running
+        dispatcher.utter_message(template="utter_working_on_it")
+
+        # get information from the form (maybe)
+        bug_slot_info = tracker.get_slot("bug")
+        print(bug_slot_info)
+
+        # always guess US for now
+        return [SlotSet("dialect", "the United States")]
