@@ -133,6 +133,8 @@
 - probably [yous guys](second_person_plural)
 - [you](second_person_plural)
 - [you guys](second_person_plural)
+- [yall](second_person_plural)
+- [y'all](second_person_plural)
 - [pillbug](bug)
 - I'd say [rolly polly](bug)
 - [coke](beverage)

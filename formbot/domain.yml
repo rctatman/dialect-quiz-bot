@@ -1,3 +1,6 @@
+session_config:
+  session_expiration_time: 0.0
+  carry_over_slots_to_new_session: true
 intents:
 - chitchat:
     use_entities: []
@@ -25,9 +28,9 @@ slots:
   second_person_plural:
     type: unfeaturized
     auto_fill: false
-templates:
+responses:
   utter_start_quiz:
-  - text: do you to take a quiz to learn more about where in the United States people
+  - text: Do you to take a quiz to learn more about where in the United States people
       talk the most like you?
   utter_ask_bug:
   - text: What do you call the small bug (technically a crustacean) that’s often found
@@ -43,17 +46,19 @@ templates:
   - text: "Here are your answers:\n - bug: {bug}\n - beverage: {beverage}\n - second_person_plural:\
       \ {second_person_plural}"
   utter_noworries:
-  - text: you are welcome :)
+  - text: You are welcome :)
   utter_chitchat:
   - text: chitchat
   utter_ask_continue:
-  - text: do you want to continue?
+  - text: Do you want to continue?
   utter_default:
-  - text: sorry, I didn't understand you, please try input something else
+  - text: Sorry, I didn't understand you, please try input something else
   utter_greet:
   - text: Hello! This is dialect bot
   utter_iamabot:
   - text: I am a bot, powered by Rasa.
+  utter_dialect_value:
+  - text: You sound like you come from {dialect}
 actions:
 - detect_dialect
 - utter_greet
@@ -62,5 +67,12 @@ actions:
 - utter_start_quiz
 - utter_slots_values
 - utter_noworries
+- utter_ask_bug
+- utter_ask_beverage
+- utter_ask_second_person_plural
+- utter_submit
+- utter_chitchat
+- utter_ask_continue
+- utter_default
 forms:
 - elicitation_form
