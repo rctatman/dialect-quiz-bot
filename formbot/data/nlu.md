@@ -1,33 +1,3 @@
-## intent:greet
-- Hi
-- Hey
-- Hi bot
-- Hey bot
-- Hello
-- Good morning
-- hi again
-- hi folks
-- hi Mister
-- hi pal!
-- hi there
-- greetings
-- hello everybody
-- hello is anybody there
-- hello robot
-- hallo
-- heeey
-- hi hi
-- hey
-- hey hey
-- hello there
-- hi
-- hello
-- yo
-- hola
-- hi?
-- hey bot!
-- hello friend
-
 ## intent:affirm
 - yeah
 - correct
@@ -52,68 +22,14 @@
 - yes!
 - yep!
 - yep
+- sure!
 
-## intent:deny
-- no
-- no new selection
-- no thanks
-- no thank you
-- uh no
-- breath no
-- do you have something else
-- no this does not work for me
-- nope
-
-## intent:inform
-- [potato bug](bug)
-- [rolly polly](bug)
-- that's a [wood bug](bug)
-- i'd call that a [pillbug](bug)
-- I'd call that [rolly polly](bug)
-- I'd just squash the [slater](bug)
-- that's a [doodle bug](bug)
-- you mean a [potato bug](bug)?
-- [soda](beverage)
-- that's [pop](beverage)
-- i'd say [coke](beverage)
-- Are [you](second_person_plural) ready to go
-- Are [y'all](second_person_plural) ready to go
-- Are [yous](second_person_plural) ready to go
-- Are [yinz](second_person_plural) ready to go
-- I'd say [you](second_person_plural)
-- like [you guys](second_person_plural)
-- probably [yous guys](second_person_plural)
-- [you](second_person_plural)
-- [you guys](second_person_plural)
-
-## intent:thankyou
-- um thank you good bye
-- okay cool uh good bye thank you
-- okay thank you good bye
-- you rock
-- and thats all thank you and good bye
-- thank you and good bye
-- sorry about my mistakes thank you good bye
-- noise thank you good bye
-- thank you goodbye noise
-- okay thank you goodbye
-- uh thank you good bye
-- thank you goodbye
-- thank you goodbye noise thank you goodbye
-- breath thank you goodbye
-- thank you
-- okay thank you
-- thanks goodbye
-- ah thank you goodbye
-- thank you noise
-- thank you good bye
-- breath thank you very much goodbye
-- thanks
-- noise thank you goodbye
-- unintelligible thank you goodbye
-- uh okay thank you good bye
-- thank you bye
-- um okay thank you good bye
+## intent:bot_challenge
+- are you a bot?
+- are you a human?
+- am I talking to a bot?
+- am I talking to a human?
+- are you real?
 
 ## intent:chitchat
 - can you share your boss with me?
@@ -154,6 +70,76 @@
 - What's the weather forecast?
 - Is it quite breezy outside?
 
+## intent:deny
+- no
+- no new selection
+- no thanks
+- no thank you
+- uh no
+- breath no
+- do you have something else
+- no this does not work for me
+- nope
+
+## intent:greet
+- Hi
+- Hey
+- Hi bot
+- Hey bot
+- Hello
+- Good morning
+- hi again
+- hi folks
+- hi Mister
+- hi pal!
+- hi there
+- greetings
+- hello everybody
+- hello is anybody there
+- hello robot
+- hallo
+- heeey
+- hi hi
+- hey
+- hey hey
+- hello there
+- hi
+- hello
+- yo
+- hola
+- hi?
+- hey bot!
+- hello friend
+- howdy
+
+## intent:inform
+- [potato bug](bug)
+- [rolly polly](bug)
+- that's a [wood bug](bug)
+- i'd call that a [pillbug](bug)
+- I'd call that [rolly polly](bug)
+- I'd just squash the [slater](bug)
+- that's a [doodle bug](bug)
+- you mean a [potato bug](bug)?
+- [soda](beverage)
+- that's [pop](beverage)
+- i'd say [coke](beverage)
+- Are [you](second_person_plural) ready to go
+- Are [y'all](second_person_plural) ready to go
+- Are [yous](second_person_plural) ready to go
+- Are [yinz](second_person_plural) ready to go
+- I'd say [you](second_person_plural)
+- like [you guys](second_person_plural)
+- probably [yous guys](second_person_plural)
+- [you](second_person_plural)
+- [you guys](second_person_plural)
+- [pillbug](bug)
+- I'd say [rolly polly](bug)
+- [coke](beverage)
+- are [yinz](second_person_plural) ready to go
+- are [y'all](second_person_plural) ready to do
+- are [y'all](second_person_plural) ready to go
+
 ## intent:stop
 - ok then you cant help me
 - that was shit, you're not helping
@@ -179,9 +165,31 @@
 - quit
 - sotp
 
-## intent:bot_challenge
-- are you a bot?
-- are you a human?
-- am I talking to a bot?
-- am I talking to a human?
-- are you real?
+## intent:thankyou
+- um thank you good bye
+- okay cool uh good bye thank you
+- okay thank you good bye
+- you rock
+- and thats all thank you and good bye
+- thank you and good bye
+- sorry about my mistakes thank you good bye
+- noise thank you good bye
+- thank you goodbye noise
+- okay thank you goodbye
+- uh thank you good bye
+- thank you goodbye
+- thank you goodbye noise thank you goodbye
+- breath thank you goodbye
+- thank you
+- okay thank you
+- thanks goodbye
+- ah thank you goodbye
+- thank you noise
+- thank you good bye
+- breath thank you very much goodbye
+- thanks
+- noise thank you goodbye
+- unintelligible thank you goodbye
+- uh okay thank you good bye
+- thank you bye
+- um okay thank you good bye
