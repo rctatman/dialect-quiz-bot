@@ -27,15 +27,18 @@ class ElicitationForm(FormAction):
             or a list of them, where a first match will be picked"""
 
         return {
-            "bug": self.from_entity(
+            "bug":[self.from_entity(
                 entity="bug", 
                 intent="inform"),
-            "beverage": self.from_entity(
+                self.from_text()],
+            "beverage": [self.from_entity(
                 entity="beverage", 
-                intent="inform"),
-            "second_person_plural": self.from_entity(
+                intent="inform"), 
+                self.from_text()],
+            "second_person_plural": [self.from_entity(
                 entity="second_person_plural", 
-                intent="inform")
+                intent="inform"),
+                self.from_text()]
         }
 
     def submit(
@@ -49,6 +52,7 @@ class ElicitationForm(FormAction):
 
         # utter submit template
         dispatcher.utter_message(template="utter_submit")
+
         return []
 
 

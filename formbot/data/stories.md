@@ -1,6 +1,5 @@
 ## happy path
 * greet
-    - utter_greet
     - utter_start_quiz
 * affirm
     - elicitation_form
@@ -14,7 +13,6 @@
 
 ## no quiz
 * greet
-    - utter_greet
     - utter_start_quiz
 * deny
     - utter_noworries

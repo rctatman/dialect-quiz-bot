@@ -14,7 +14,7 @@ class AlexaConnector(InputChannel):
 
     @classmethod
     def name(cls):
-        return "ama_alexa"
+        return "dialect_quiz"
 
     def blueprint(self, on_new_message):
         

@@ -30,7 +30,7 @@ slots:
     auto_fill: false
 responses:
   utter_start_quiz:
-  - text: Do you to take a quiz to learn more about where in the United States people
+  - text: Hi! Do you want to take a quiz to learn more about where in the United States people
       talk the most like you?
   utter_ask_bug:
   - text: What do you call the small bug (technically a crustacean) that’s often found
