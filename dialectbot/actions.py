@@ -23,7 +23,11 @@ class ElicitationForm(FormAction):
     def required_slots(tracker: Tracker) -> List[Text]:
         """A list of required slots that the form has to fill"""
 
-        return ["bug", "beverage", "second_person_plural"]
+        return ["bug", "beverage", "second_person_plural", 
+        "cot_caught", "rain_sun", "crawfish", "halloween",
+        "sandwich", "side_road", "shoes", "highway", "yard_sale",
+        "rubbernecking", "frosting", "lawyer", "kitty_corner",
+        "firefly", "verge", "brew_thru", "water_fountain"]
 
     def slot_mappings(self) -> Dict[Text, Union[Dict, List[Dict]]]:
         """A dictionary to map required slots to
@@ -43,6 +47,74 @@ class ElicitationForm(FormAction):
                 self.from_text()],
             "second_person_plural": [self.from_entity(
                 entity="second_person_plural", 
+                intent="inform"),
+                self.from_text()],
+            "cot_caught": [self.from_entity(
+                entity="cot_caught", 
+                intent="inform"),
+                self.from_text()],
+            "rain_sun": [self.from_entity(
+                entity="rain_sun", 
+                intent="inform"),
+                self.from_text()],
+            "crawfish": [self.from_entity(
+                entity="crawfish", 
+                intent="inform"),
+                self.from_text()],
+            "halloween": [self.from_entity(
+                entity="halloween", 
+                intent="inform"),
+                self.from_text()],
+            "sandwich": [self.from_entity(
+                entity="sandwich", 
+                intent="inform"),
+                self.from_text()],
+            "side_road": [self.from_entity(
+                entity="side_road", 
+                intent="inform"),
+                self.from_text()],
+            "shoes": [self.from_entity(
+                entity="shoes", 
+                intent="inform"),
+                self.from_text()],
+            "highway": [self.from_entity(
+                entity="highway", 
+                intent="inform"),
+                self.from_text()],
+            "yard_sale": [self.from_entity(
+                entity="yard_sale", 
+                intent="inform"),
+                self.from_text()],
+            "rubbernecking": [self.from_entity(
+                entity="rubbernecking", 
+                intent="inform"),
+                self.from_text()],
+            "frosting": [self.from_entity(
+                entity="frosting", 
+                intent="inform"),
+                self.from_text()],
+            "lawyer": [self.from_entity(
+                entity="lawyer", 
+                intent="inform"),
+                self.from_text()],
+            "kitty_corner": [self.from_entity(
+                entity="kitty_corner", 
+                intent="inform"),
+                self.from_text()],
+            "firefly": [self.from_entity(
+                entity="firefly", 
+                intent="inform"),
+                self.from_text()],
+            "verge": [self.from_entity(
+                entity="verge", 
+                intent="inform"),
+                self.from_text()],
+            "brew_thru": [self.from_entity(
+                entity="brew_thru", 
+                intent="inform"),
+                self.from_text()],
+            "water_fountain": [self.from_entity(
+                entity="water_fountain", 
                 intent="inform"),
                 self.from_text()]
         }
