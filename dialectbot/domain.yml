@@ -137,7 +137,7 @@ responses:
   - text: How do you address a group of two or more people? As in “Are ___ ready to
       go?”
   utter_ask_cot_caught:
-  - text: Do you pronounce "cot" and "caught" the same?
+  - text: Do you pronounce "cot" and "caught" different or the same?
   utter_ask_rain_sun:
   - text: What do you call it when rain falls while the sun is shining?
   utter_ask_crawfish:
@@ -153,23 +153,23 @@ responses:
   utter_ask_highway:
   - text: What do you call a big road where you can drive fast?
   utter_ask_yard_sale:
-  - What would you call a sale of second hand items from a yard or porch?
+  - text: What would you call a sale of second hand items from a yard or porch?
   utter_ask_rubbernecking:
-  - What do you call a traffic jam caused by drivers slowing down to look at an accident?
+  - text: What do you call a traffic jam caused by drivers slowing down to look at an accident?
   utter_ask_frosting:
-  - Do you say 'frosting' or 'icing' for the sweet spread you put on a cake?
+  - text: Do you say 'frosting' or 'icing' for the sweet spread you put on a cake?
   utter_ask_lawyer:
-  - Does the first syllable of lawyer rhyme with 'boy' or 'law' when you say it?
+  - text: Does the first syllable of lawyer rhyme with 'boy' or 'law' when you say it?
   utter_ask_kitty_corner:
-  - What term do you use to refer to something that is diagonal from you at an intersection?
+  - text: What term do you use to refer to something that is diagonal from you at an intersection?
   utter_ask_firefly: 
-  - What do you call the insect that flies around in the summer and glows in the dark?
+  - text: What do you call the insect that flies around in the summer and glows in the dark?
   utter_ask_verge:
-  - What do you call the area of grass between the sidewalk and the road?
+  - text: What do you call the area of grass between the sidewalk and the road?
   utter_ask_brew_thru: 
-  - What do you call a drive-through liquor store?
+  - text: What do you call a drive-through liquor store?
   utter_ask_water_fountain:
-  - What do you call the thing you drink water from in a school?
+  - text: What do you call the thing you drink water from in a school?
 
 actions:
 - detect_dialect
