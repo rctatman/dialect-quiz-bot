@@ -120,7 +120,7 @@ class ElicitationForm(FormAction):
         }
 
     # validate user answers
-        # USED FOR DOCS: do not rename without updating in docs
+    # TODO: validate 'bug' slot
     @staticmethod
     def answers_db() -> Dict[str, List]:
         """Database of supported cuisines"""
@@ -173,12 +173,12 @@ class ElicitationForm(FormAction):
             'I have no word for this',
             'other'],
             'side_road': ['frontage road',
-            ' service road',
-            ' access road',
-            ' feeder road',
-            ' gateway',
-            ' we have them but I have no word for them',
-            " I've never heard of this concept",
+            'service road',
+            'access road',
+            'feeder road',
+            'gateway',
+            'we have them but I have no word for them',
+            "I've never heard of this concept",
             'other'],
             'beverage': ['soda',
             'pop',
@@ -279,24 +279,49 @@ class ElicitationForm(FormAction):
             'water fountain',
             'other']}
 
-    # USED FOR DOCS: do not rename without updating in docs
-    def validate_cuisine(
-        self,
-        value: Text,
-        dispatcher: CollectingDispatcher,
-        tracker: Tracker,
-        domain: Dict[Text, Any],
-    ) -> Dict[Text, Any]:
-        """Validate cuisine value."""
+    def create_validation_function(name_of_slot):
+        """Function generate our validation functions, since
+        they're pretty much the same for each slot"""
+        def validate_slot(
+            self,
+            value: Text,
+            dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any],
+        ) -> Dict[Text, Any]:
+            """Validate user input."""
 
-        if value.lower() in self.cuisine_db():
-            # validation succeeded, set the value of the "cuisine" slot to value
-            return {"cuisine": value}
-        else:
-            dispatcher.utter_message(template="utter_wrong_cuisine")
-            # validation failed, set this slot to None, meaning the
-            # user will be asked for the slot again
-            return {"cuisine": None}
+            if value.lower() in self.answers_db()[name_of_slot]:
+                # validation succeeded, set the value of the slot to 
+                # user-provided value
+                return {name_of_slot: value}
+            else:
+                # set slot to "other" if answer not in original list 
+                # of multiple choice answers
+                return {name_of_slot: "other"}
+        
+        return(validate_slot)
+
+    # create validation functions for each of our questions
+    validate_second_person_plural = create_validation_function(name_of_slot = "second_person_plural")
+    validate_cot_caught = create_validation_function(name_of_slot = "cot_caught")
+    validate_rain_sun = create_validation_function(name_of_slot = "rain_sun")
+    validate_crawfish = create_validation_function(name_of_slot = "crawfish")
+    validate_halloween = create_validation_function(name_of_slot = "halloween")
+    validate_sandwich = create_validation_function(name_of_slot = "sandwich")
+    validate_side_road = create_validation_function(name_of_slot = "side_road")
+    validate_beverage = create_validation_function(name_of_slot = "beverage")
+    validate_shoes = create_validation_function(name_of_slot = "shoes")
+    validate_highway = create_validation_function(name_of_slot = "highway")
+    validate_yard_sale = create_validation_function(name_of_slot = "yard_sale")
+    validate_rubbernecking = create_validation_function(name_of_slot = "rubbernecking")
+    validate_frosting = create_validation_function(name_of_slot = "frosting")
+    validate_lawyer = create_validation_function(name_of_slot = "lawyer")
+    validate_kitty_corner = create_validation_function(name_of_slot = "kitty_corner")
+    validate_firefly = create_validation_function(name_of_slot = "firefly")
+    validate_verge = create_validation_function(name_of_slot = "verge")
+    validate_brew_thru = create_validation_function(name_of_slot = "brew_thru")
+    validate_water_fountain = create_validation_function(name_of_slot = "water_fountain")
 
     def submit(
         self,
