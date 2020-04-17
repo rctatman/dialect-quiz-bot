@@ -10,6 +10,7 @@ import xgboost as xgb
 import numpy as np
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder
+from fuzzywuzzy import process
 
 class ElicitationForm(FormAction):
     """Example of a custom form action"""
@@ -296,9 +297,16 @@ class ElicitationForm(FormAction):
                 # user-provided value
                 return {name_of_slot: value}
             else:
-                # set slot to "other" if answer not in original list 
-                # of multiple choice answers
-                return {name_of_slot: "other"}
+                # find the closest answer by some measure (edit distance?)
+                choices = self.answers_db()[name_of_slot]
+                answer = process.extractOne(value.lower(), choices)
+
+                # check to see if distnace is greater than some threshold
+                if answer[1] < 45:
+                    # if so, set slot to "other"
+                    return {name_of_slot: "other"}
+                else:
+                    return {name_of_slot: answer[0]}
         
         return(validate_slot)
 
