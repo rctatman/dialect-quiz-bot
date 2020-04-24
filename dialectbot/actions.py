@@ -9,6 +9,7 @@ from joblib import load
 import xgboost as xgb
 import numpy as np
 import pandas as pd
+
 from sklearn.preprocessing import LabelEncoder
 from fuzzywuzzy import process
 
@@ -124,7 +125,7 @@ class ElicitationForm(FormAction):
     # TODO: validate 'bug' slot
     @staticmethod
     def answers_db() -> Dict[str, List]:
-        """Database of supported cuisines"""
+        """Database of multiple choice answers"""
 
         return {'second_person_plural': ['you all',
             'yous, youse',
@@ -355,20 +356,59 @@ class DetectDialect(Action):
 
         return "detect_dialect"
 
+    @staticmethod
+    def slot_key_db() -> Dict[str, List]:
+        """Database of slot values & 
+        corresponding questions"""
+
+        return {'Q050': 'second_person_plural',
+            'Q028': 'cot_caught',
+            'Q080': 'rain_sun',
+            'Q066': 'crawfish',
+            'Q110': 'halloween',
+            'Q064': 'sandwich',
+            'Q090': 'side_road',
+            'Q105': 'beverage',
+            'Q073': 'shoes',
+            'Q079': 'highway',
+            'Q058': 'yard_sale',
+            'Q107': 'rubbernecking',
+            'Q094': 'frosting',
+            'Q014': 'lawyer',
+            'Q076': 'kitty_corner',
+            'Q065': 'firefly',
+            'Q060': 'verge',
+            'Q118': 'brew_thru',
+            'Q103': 'water_fountain'}
+
+    def format_user_input(self, dispatcher, tracker, domain):
+        """ Format user input as a pd series with the question
+        key as the row name, should match format of test_case
+        before encoding. 
+        """
+        user_input = ""
+
+        return(user_input)
+
+
     def run(self, dispatcher, tracker, domain):
         """place holder method for guessing dialect """
         # let user know the analysis is running
         dispatcher.utter_message(template="utter_working_on_it")
 
-        # get information from the form (maybe)
-        bug_slot_info = tracker.get_slot("bug")
-        print(bug_slot_info)
+        # get information from the form & format it
+        # for encoding
+        slot_question_key = self.slot_key_db()
+        formatted_responses = pd.Series(index = slot_question_key.keys())
+
+        for index, value in formatted_responses.items():
+            formatted_responses[index] = tracker.get_slot(slot_question_key[index])
 
         # classify test case
         # TODO: use user input instead of test case
         d, d_classes, dialect_classifier, test_case = ClassifierPipeline.load_data()
-        test_case_encoded = ClassifierPipeline.encode_data(test_case, d)
-        dialects = ClassifierPipeline.predict_cities(test_case_encoded, dialect_classifier, d)
+        input_case_encoded = ClassifierPipeline.encode_data(formatted_responses, d)
+        dialects = ClassifierPipeline.predict_cities(input_case_encoded, dialect_classifier, d)
 
         # always guess US for now
         return [SlotSet("dialect", dialects)]
