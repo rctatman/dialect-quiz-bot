@@ -1,11 +1,12 @@
 ## happy path
 * greet: howdy
-    - utter_greet
-    - utter_start_quiz
+    - utter_greet   <!-- predicted: utter_start_quiz -->
+    - utter_start_quiz   <!-- predicted: action_default_fallback -->
+    - action_listen   <!-- predicted: action_default_fallback -->
 * affirm: sure
-    - elicitation_form
+    - elicitation_form   <!-- predicted: action_default_fallback -->
     - form{"name": "elicitation_form"}
-* inform: something
+* form: inform: something   <!-- predicted: deny: something -->
     - slot{"bug": "pill bug"}
     - slot{"beverage": "soda"}
     - slot{"second_person_plural": "y'all"}
@@ -26,15 +27,21 @@
     - slot{"verge": "verge"}
     - slot{"brew_thru": "brew thru"}
     - slot{"water_fountain": "water fountain"}
-    - form: elicitation_form
     - form{"name": null}
-    - utter_slots_values
+    - utter_slots_values   <!-- predicted: action_default_fallback -->
+    - action_listen   <!-- predicted: action_default_fallback -->
 * thankyou: cool, thanks
-    - utter_noworries
+    - utter_noworries   <!-- predicted: action_default_fallback -->
+    - action_listen   <!-- predicted: action_default_fallback -->
+
 
 ## no quiz
 * greet: hello
-    - utter_greet
-    - utter_start_quiz
+    - utter_greet   <!-- predicted: utter_start_quiz -->
+    - utter_start_quiz   <!-- predicted: action_default_fallback -->
+    - action_listen   <!-- predicted: action_default_fallback -->
 * deny: nah
-    - utter_noworries
+    - utter_noworries   <!-- predicted: action_default_fallback -->
+    - action_listen   <!-- predicted: action_default_fallback -->
+
+
