@@ -11,6 +11,7 @@ import numpy as np
 import pandas as pd
 
 from sklearn.preprocessing import LabelEncoder
+import sklearn.neighbors
 from fuzzywuzzy import process
 
 class ElicitationForm(FormAction):
@@ -126,160 +127,65 @@ class ElicitationForm(FormAction):
     @staticmethod
     def answers_db() -> Dict[str, List]:
         """Database of multiple choice answers"""
-
-        return {'second_person_plural': ['you all',
-            'yous, youse',
-            'you lot',
-            'you guys',
-            "you 'uns",
-            'yins',
-            'you',
-            'other',
-            "y'all"],
-            'cot_caught': ['different', 'same'],
-            'rain_sun': ['sunshower',
-            'the wolf is giving birth',
-            'the devil is beating his wife',
-            "monkey's wedding",
-            "fox's wedding",
-            'pineapple rain',
-            'liquid sun',
-            'I have no term or expression for this',
-            'other'],
-            'crawfish': ['crawfish',
-            'crayfish',
-            'craw',
-            'crowfish',
-            'crawdad',
-            'mudbug',
-            'I have no word for this critter',
-            'other'],
-            'halloween': ['gate night',
-            'trick night',
-            'mischief night',
-            'cabbage night',
-            'goosy night',
-            "devil's night",
-            "devil's eve",
-            'I have no word for this',
-            'other'],
-            'sandwich': ['sub',
-            'grinder',
-            'hoagie',
-            'hero',
-            'poor boy',
-            'bomber',
-            'Italian sandwich',
-            'baguette',
-            'sarney',
-            'I have no word for this',
-            'other'],
-            'side_road': ['frontage road',
-            ' service road',
-            ' access road',
-            ' feeder road',
-            ' gateway',
-            ' we have them but I have no word for them',
-            " I've never heard of this concept",
-            'other'],
-            'beverage': ['soda',
-            'pop',
-            'coke',
-            'tonic',
-            'soft drink',
-            'lemonade',
-            'cocola',
-            'fizzy drink',
-            'dope',
-            'other'],
-            'shoes': ['sneakers',
-            'shoes',
-            'gymshoes',
-            'sand shoes',
-            'jumpers',
-            'tennis shoes',
-            'running shoes',
-            'runners',
-            'trainers',
-            'I have no general word for this',
-            'other'],
-            'highway': ['highway',
-            'freeway',
-            'parkway',
-            'turnpike',
-            'expressway',
-            'throughway/thru-way',
-            'a freeway is bigger than a highway',
-            'a freeway is free',
-            'a freeway has limited access',
-            'other'],
-            'yard_sale': ['tag sale',
-            'yard sale',
-            'garage sale',
-            'rummage sale',
-            'thrift sale',
-            'stoop sale',
-            'carport sale',
-            'sidewalk sale',
-            'jumble',
-            'car boot sale',
-            'car boot',
-            'patio sale',
-            'other'],
-            'rubbernecking': ['rubberneck',
-            'rubbernecking',
-            'rubbernecking is the activity',
-            "gapers' block",
-            "gapers' delay",
-            'Lookie Lou',
-            'curiosity delay',
-            'gawk block',
-            'I have no word for this',
-            'other'],
-            'frosting': ['frosting',
-            'icing',
-            'icing is thinner than frosting, white, and/or made of powdered sugar and milk or lemon juice',
-            'both',
-            'neither',
-            'other'],
-            'lawyer': ['boy', 'law', 'both', 'other'],
-            'kitty_corner': ['kitty-corner',
-            'kitacorner',
-            'catercorner',
-            'catty-corner',
-            'kitty cross',
-            'kitty wampus',
-            'I can only use "diagonal" for this',
-            'I have no term for this',
-            'other'],
-            'firefly': ['lightning bug',
-            'firefly',
-            'I use lightning bug and firefly interchangeably',
-            'peenie wallie',
-            'I have no word for this',
-            'other'],
-            'verge': ['berm',
-            'parking',
-            'tree lawn',
-            'terrace',
-            'curb strip',
-            'beltway',
-            'verge',
-            'I have no word for this',
-            'other'],
-            'brew_thru': ['brew thru',
-            'party barn',
-            'bootlegger',
-            'beer barn',
-            'beverage barn',
-            'we have these in my area, but we have no special term for them',
-            'I have never heard of such a thing',
-            'other'],
-            'water_fountain': ['bubbler',
-            'water bubbler',
-            'drinking fountain',
-            'water fountain',
-            'other']}
+        return{"lawyer":["either","other","law","boy"],
+        "cot_caught":["different","other","same"],
+        "second_person_plural":["other","y'all","yins",
+        "you","you 'uns","you all","you guys","you lot",
+        "yous, youse"],
+        "yard_sale":["car boot","car boot sale",
+        "carport sale","garage sale","jumble (sale)",
+        "other","patio sale","rummage sale","sidewalk sale",
+        "stoop sale","tag sale","thrift sale","yard sale"],
+        "verge":["beltway","berm","curb strip",
+        "I have no word for this","other","parking",
+        "terrace","tree lawn","verge"],
+        "sandwich":["baguette","bomber","grinder","hero",
+        "hoagie","I have no word for this","Italian sandwich",
+        "other","poor boy","sarney","sub"],
+        "firefly":["firefly","I have no word for this",
+        "I use lightning bug and firefly interchangeably",
+        "lightning bug","other","peenie wallie"],
+        "crawfish":["craw","crawdad","crawfish","crayfish",
+        "crowfish","I have no word for this critter","mudbug","other"],
+        "shoes":["gymshoes","I have no general word for this",
+        "jumpers","other","runners","running shoes","sand shoes",
+        "shoes","sneakers","tennis shoes","trainers"],
+        "bug":["basketball bug","centipede","doodle bug",
+        "I have no idea what this creature is",
+        "I know what this creature is, but have no word for it",
+        "millipede","other","pill bug","potato bug","roll-up bug",
+        "roly poly","sow bug","twiddle bug","wood louse"],
+        "kitty_corner":["catercorner","catty-corner",
+        "I can only use \"diagonal\" for this","I have no term for this",
+        "kitacorner","kitty-corner","kitty cross","kitty wampus","other"],
+        "highway":["a freeway has limited access (no stop lights, no intersections), whereas a highway can have stop lights and intersections",
+        "a freeway is bigger than a highway",
+        "a freeway is free (i.e., doesn't charge tolls); a highway isn't",
+        "expressway","freeway","highway","other","parkway",
+        "throughway/thru-way","turnpike"],
+        "rain_sun":["fox's wedding","I have no term or expression for this",
+        "liquid sun","monkey's wedding","other","pineapple rain","sunshower",
+        "the devil is beating his wife","the wolf is giving birth"],
+        "frosting":["both","frosting","icing",
+        "icing is thinner than frosting, white, and/or made of powdered sugar and milk or lemon juice",
+        "neither","other"],
+        "side_road":["access road","feeder road","frontage road",
+        "gateway","I've never heard of this concept","other",
+        "service road","we have them but I have no word for them"],
+        "water_fountain":["bubbler","drinking fountain","other","water bubbler",
+        "water fountain"],
+        "beverage":["cocola","coke","dope","fizzy drink",
+        "lemonade","other","pop","soda","soft drink","tonic"],
+        "rubbernecking":["curiosity delay","gapers' block",
+        "gapers' delay","gawk block","I have no word for this",
+        "Lookie Lou","other","rubberneck","rubbernecking",
+        "rubbernecking is the thing you do, not the traffice jam"],
+        "halloween":["cabbage night","devil's eve","devil's night",
+        "gate night","goosy night","I have no word for this",
+        "mischief night","other","trick night"],
+        "brew_thru":["beer barn","beverage barn","bootlegger","brew thru",
+        "I have never heard of such a thing","other","party barn",
+        "we have these in my area, but we have no special term for them"]}
 
     def create_validation_function(name_of_slot):
         """Function generate our validation functions, since
@@ -405,15 +311,12 @@ class DetectDialect(Action):
             formatted_responses[index] = tracker.get_slot(slot_question_key[index])
 
         # classify test case
-        # TODO: use user input instead of test case
-        d, d_classes, dialect_classifier, test_case = ClassifierPipeline.load_data()
-        input_case_encoded = ClassifierPipeline.encode_data(formatted_responses, d)
-        dialects = ClassifierPipeline.predict_cities(input_case_encoded, dialect_classifier, d)
+        dialects = ClassifierPipeline_knn.get_top_3_knn(formatted_responses)
 
         # always guess US for now
         return [SlotSet("dialect", dialects)]
 
-class ClassifierPipeline():
+class ClassifierPipeline_xgboost():
     """Load in calssifier & encoders"""
 
     def name(self) -> Text:
@@ -467,3 +370,42 @@ class ClassifierPipeline():
         cities = d["class_target"].inverse_transform(top_3[0].tolist())
 
         return cities
+
+class ClassifierPipeline_knn():
+    """Load in calssifier & encoders"""
+
+    def name(self) -> Text:
+        """Unique identifier of the classfier """
+
+        return "5knn_state"
+
+    def encode_answers(self, input_data):
+        '''Reads in the sample encoded data w/ correct columns and 
+        converts input data to the same format'''
+        # read in empty dataframe with correct columns
+        encoding_sample = pd.read_csv("model_bits\empty_data_stucture.csv").iloc[:, 3:]
+
+        # encode it
+        encoded_data = encoding_sample.align(pd.get_dummies(input_data),
+        join = "left", axis = 1)
+
+        # convert na's to 0 (since we're one hot encoding)
+        encoded_data = encoded_data[1].fillna(0)
+        
+        return(encoded_data)
+
+    def get_top_3_knn(self, data):
+        '''Read in the knn model and apply it to correctly formatted sample data'''
+        # read in model
+        state_knn = load("model_bits\state_level_knn.joblib")
+
+        # encode input data
+        encoded_data = self.encode_answers(data)
+
+        pred = state_knn.predict_proba(encoded_data)
+        top_3 = np.argsort(pred, axis=1)[ : ,-3 : ]
+        results = [state_knn.classes_[i] for i in top_3]
+
+        return(results[0].tolist())
+
+        from typing import Dict, Text, Any, List, Union, Optional
