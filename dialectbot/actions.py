@@ -311,7 +311,7 @@ class DetectDialect(Action):
             formatted_responses[index] = tracker.get_slot(slot_question_key[index])
 
         # classify test case
-        dialects = ClassifierPipeline_knn.get_top_3_knn(formatted_responses)
+        dialects = ClassifierPipeline_knn().get_top_3_knn(formatted_responses)
 
         # always guess US for now
         return [SlotSet("dialect", dialects)]
