@@ -108,7 +108,7 @@ responses:
   utter_submit:
   - text: All done!
   utter_slots_values:
-  - text: "Here are your answers:\n {bug}\n {beverage}\n \
+  - text: "Here are your answers:\n{bug}\n{beverage}\
       \n{second_person_plural}\n{cot_caught}\n{rain_sun}\
       \n{crawfish}\n{halloween}\n{sandwich}\n{side_road}\
       \n{shoes}\n{highway}\n{yard_sale}\n{rubbernecking}\

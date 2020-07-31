@@ -316,61 +316,6 @@ class DetectDialect(Action):
         # always guess US for now
         return [SlotSet("dialect", dialects)]
 
-class ClassifierPipeline_xgboost():
-    """Load in calssifier & encoders"""
-
-    def name(self) -> Text:
-        """Unique identifier of the classfier """
-
-        return "xgboost_softprob"
-
-    def load_data():
-        ''' Load in the pretrained model & label encoders.
-        '''
-        d = load("classifier\label_encoder.joblib.dat")
-        d_classes = load("classifier\encoder_classes.joblib.dat")
-        dialect_classifier = load("classifier\dialect_classifier.joblib.dat")
-        test_case = load("classifier\\test_case.joblib.dat")
-
-        # remove target class from test data
-        del test_case["class_target"]
-
-        # update the classes for each of our label encoders
-        for key,item in d.items():
-            d[key]._classes = d_classes[key]
-
-        return d, d_classes, dialect_classifier, test_case
-
-    def encode_data(input_data, d):
-        ''' Encode our input data with pre-trained label encoders.
-        '''
-        # encode our test data
-        test_case_encoded = input_data
-
-        for i, row in input_data.items():
-            test_case_encoded[i] = d[i].transform([input_data[i]])
-
-        test_case_encoded = test_case_encoded.apply(lambda x:x[0])
-
-        return test_case_encoded
-
-    def predict_cities(test_case_encoded, dialect_classifier, d):
-        ''' Take in encoded data & return top three predicted cities.
-        '''
-        # convert input data to DMatrix format
-        test_case_encoded_d = xgb.DMatrix(test_case_encoded)
-        test_case_encoded_d.feature_names =  test_case_encoded.index.tolist()
-
-        # classify using our pre-trained model
-        predictions = dialect_classifier.predict(test_case_encoded_d)
-
-        # return the top 3 classes
-        top_3 = np.argsort(predictions, axis=1)[ : ,-3 : ]
-
-        cities = d["class_target"].inverse_transform(top_3[0].tolist())
-
-        return cities
-
 class ClassifierPipeline_knn():
     """Load in calssifier & encoders"""
 
