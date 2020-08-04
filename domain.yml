@@ -1,0 +1,192 @@
+session_config:
+  session_expiration_time: 0.0
+  carry_over_slots_to_new_session: true
+
+intents:
+- chitchat:
+    use_entities: []
+- inform
+- affirm
+- deny
+- stop
+- thankyou
+- greet
+- bot_challenge
+
+entities:
+- bug
+- beverage
+- second_person_plural
+- cot_caught
+- rain_sun
+- crawfish
+- halloween
+- sandwich
+- side_road
+- shoes
+- highway
+- yard_sale
+- rubbernecking
+- frosting
+- lawyer
+- kitty_corner
+- firefly
+- verge
+- brew_thru
+- water_fountain
+
+slots:
+  beverage:
+    type: unfeaturized
+    auto_fill: false
+  bug:
+    type: unfeaturized
+    auto_fill: false
+  dialect:
+    type: unfeaturized
+    auto_fill: false
+  second_person_plural:
+    type: unfeaturized
+    auto_fill: false
+  cot_caught:
+    type: unfeaturized
+    auto_fill: false
+  rain_sun:
+    type: unfeaturized
+    auto_fill: false
+  crawfish:
+    type: unfeaturized
+    auto_fill: false
+  halloween:
+    type: unfeaturized
+    auto_fill: false
+  sandwich: 
+    type: unfeaturized
+    auto_fill: false
+  side_road:
+    type: unfeaturized
+    auto_fill: false
+  shoes:
+    type: unfeaturized
+    auto_fill: false
+  highway:
+    type: unfeaturized
+    auto_fill: false
+  yard_sale:
+    type: unfeaturized
+    auto_fill: false
+  rubbernecking:
+    type: unfeaturized
+    auto_fill: false
+  frosting:
+    type: unfeaturized
+    auto_fill: false
+  lawyer:
+    type: unfeaturized
+    auto_fill: false
+  kitty_corner:
+    type: unfeaturized
+    auto_fill: false
+  firefly:
+    type: unfeaturized
+    auto_fill: false
+  verge:
+    type: unfeaturized
+    auto_fill: false
+  brew_thru:
+    type: unfeaturized
+    auto_fill: false
+  water_fountain:
+    type: unfeaturized
+    auto_fill: false
+
+
+responses:
+  utter_start_quiz:
+  - text: Hi! Do you want to take a quiz to learn more about where in the United States people
+      talk the most like you? Before you get started, you should know that this quiz is being developed as part of a livecoding project. Any input you share may be seen live on stream.
+  utter_submit:
+  - text: All done!
+  utter_slots_values:
+  - text: "Here are your answers:\n{bug}\n{beverage}\
+      \n{second_person_plural}\n{cot_caught}\n{rain_sun}\
+      \n{crawfish}\n{halloween}\n{sandwich}\n{side_road}\
+      \n{shoes}\n{highway}\n{yard_sale}\n{rubbernecking}\
+      \n{frosting}\n{lawyer}\n{kitty_corner}\n{firefly}\
+      \n{verge}\n{brew_thru}\n{water_fountain}"
+  utter_noworries:
+  - text: You are welcome :)
+  utter_chitchat:
+  - text: chitchat
+  utter_ask_continue:
+  - text: Do you want to continue?
+  utter_default:
+  - text: Sorry, I didn't understand you, please try input something else
+  utter_greet:
+  - text: Hello! This is dialect bot
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+  utter_dialect_value:
+  - text: You sound like you come from {dialect}
+  utter_ask_bug:
+  - text: What do you call the small bug (technically a crustacean) that’s often found
+      under logs and can roll into a little ball?
+  utter_ask_beverage:
+  - text: What do you call a sweet, carbonated beverage?
+  utter_ask_second_person_plural:
+  - text: How do you address a group of two or more people? As in “Are ___ ready to
+      go?”
+  utter_ask_cot_caught:
+  - text: Do you pronounce "cot" and "caught" different or the same?
+  utter_ask_rain_sun:
+  - text: What do you call it when rain falls while the sun is shining?
+  utter_ask_crawfish:
+  - text: What do you call the miniature lobster found in lakes and streams?
+  utter_ask_halloween:
+  - text: What do you call the night before Halloween?
+  utter_ask_sandwich: 
+  - text: What do you call a long sandwich with meat, veggies and other toppings?
+  utter_ask_side_road:
+  - text: What do you call the small road parallel to the highway?
+  utter_ask_shoes:
+  - text: What do you call rubber-soled athletic shoes?
+  utter_ask_highway:
+  - text: What do you call a big road where you can drive fast?
+  utter_ask_yard_sale:
+  - text: What would you call a sale of second hand items from a yard or porch?
+  utter_ask_rubbernecking:
+  - text: What do you call a traffic jam caused by drivers slowing down to look at an accident?
+  utter_ask_frosting:
+  - text: Do you say 'frosting' or 'icing' for the sweet spread you put on a cake?
+  utter_ask_lawyer:
+  - text: Does the first syllable of lawyer rhyme with 'boy' or 'law' when you say it?
+  utter_ask_kitty_corner:
+  - text: What term do you use to refer to something that is diagonal from you at an intersection?
+  utter_ask_firefly: 
+  - text: What do you call the insect that flies around in the summer and glows in the dark?
+  utter_ask_verge:
+  - text: What do you call the area of grass between the sidewalk and the road?
+  utter_ask_brew_thru: 
+  - text: What do you call a drive-through liquor store?
+  utter_ask_water_fountain:
+  - text: What do you call the thing you drink water from in a school?
+
+actions:
+- detect_dialect
+- utter_greet
+- utter_iamabot
+- utter_dialect_value
+- utter_start_quiz
+- utter_slots_values
+- utter_noworries
+- utter_ask_bug
+- utter_ask_beverage
+- utter_ask_second_person_plural
+- utter_submit
+- utter_chitchat
+- utter_ask_continue
+- utter_default
+- utter_livecode_warning
+
+forms:
+- elicitation_form
