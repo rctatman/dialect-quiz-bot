@@ -267,6 +267,8 @@ class DetectDialect(Action):
         """Database of slot values & 
         corresponding questions"""
 
+        # TODO: check this mapping, I think it's leading to mis-
+        # matched column names
         return {'Q050': 'second_person_plural',
             'Q028': 'cot_caught',
             'Q080': 'rain_sun',
