@@ -6,7 +6,6 @@ from rasa_sdk.forms import FormAction
 from rasa_sdk.events import SlotSet
 
 from joblib import load
-import xgboost as xgb
 import numpy as np
 import pandas as pd
 
@@ -267,37 +266,25 @@ class DetectDialect(Action):
         """Database of slot values & 
         corresponding questions"""
 
-        # TODO: check this mapping, I think it's leading to mis-
-        # matched column names
-        return {'Q050': 'second_person_plural',
-            'Q028': 'cot_caught',
-            'Q080': 'rain_sun',
-            'Q066': 'crawfish',
-            'Q110': 'halloween',
-            'Q064': 'sandwich',
-            'Q090': 'side_road',
-            'Q105': 'beverage',
-            'Q073': 'shoes',
-            'Q079': 'highway',
-            'Q058': 'yard_sale',
-            'Q107': 'rubbernecking',
-            'Q094': 'frosting',
-            'Q014': 'lawyer',
-            'Q076': 'kitty_corner',
-            'Q065': 'firefly',
-            'Q060': 'verge',
-            'Q118': 'brew_thru',
-            'Q103': 'water_fountain'}
-
-    def format_user_input(self, dispatcher, tracker, domain):
-        """ Format user input as a pd series with the question
-        key as the row name, should match format of test_case
-        before encoding. 
-        """
-        user_input = ""
-
-        return(user_input)
-
+        return {'q50': 'second_person_plural',
+            'q28': 'cot_caught',
+            'q80': 'rain_sun',
+            'q66': 'crawfish',
+            'q110': 'halloween',
+            'q64': 'sandwich',
+            'q90': 'side_road',
+            'q105': 'beverage',
+            'q73': 'shoes',
+            'q79': 'highway',
+            'q58': 'yard_sale',
+            'q107': 'rubbernecking',
+            'q94': 'frosting',
+            'q14': 'lawyer',
+            'q76': 'kitty_corner',
+            'q65': 'firefly',
+            'q60': 'verge',
+            'q118': 'brew_thru',
+            'q103': 'water_fountain'}
 
     def run(self, dispatcher, tracker, domain):
         """place holder method for guessing dialect """

@@ -1,6 +1,6 @@
 session_config:
   session_expiration_time: 0.0
-  carry_over_slots_to_new_session: true
+  carry_over_slots_to_new_session: false
 
 intents:
 - chitchat:
@@ -170,6 +170,8 @@ responses:
   - text: What do you call a drive-through liquor store?
   utter_ask_water_fountain:
   - text: What do you call the thing you drink water from in a school?
+  utter_working_on_it:
+  - text: Calculating your answers now...
 
 actions:
 - detect_dialect
@@ -186,5 +188,6 @@ actions:
 - utter_chitchat
 - utter_ask_continue
 - utter_default
+- utter_working_on_it
 forms:
 - elicitation_form

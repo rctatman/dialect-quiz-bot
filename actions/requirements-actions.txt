@@ -1,0 +1,6 @@
+fuzzywuzzy==0.17.0
+numpy==1.18.1
+pandas==1.0.1
+joblib==0.14.1
+rasa_sdk==1.10.2
+scikit_learn==0.23.2
