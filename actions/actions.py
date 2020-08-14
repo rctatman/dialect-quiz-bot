@@ -122,7 +122,6 @@ class ElicitationForm(FormAction):
         }
 
     # validate user answers
-    # TODO: validate 'bug' slot
     @staticmethod
     def answers_db() -> Dict[str, List]:
         """Database of multiple choice answers"""
@@ -236,6 +235,7 @@ class ElicitationForm(FormAction):
     validate_verge = create_validation_function(name_of_slot = "verge")
     validate_brew_thru = create_validation_function(name_of_slot = "brew_thru")
     validate_water_fountain = create_validation_function(name_of_slot = "water_fountain")
+    validate_bug = create_validation_function(name_of_slot = "bug")
 
     def submit(
         self,
@@ -287,9 +287,9 @@ class DetectDialect(Action):
             'q103': 'water_fountain'}
 
     def run(self, dispatcher, tracker, domain):
-        """place holder method for guessing dialect """
+        """get dialect classification """
         # let user know the analysis is running
-        dispatcher.utter_message(template="utter_working_on_it")
+        # dispatcher.utter_message(template="utter_working_on_it")
 
         # get information from the form & format it
         # for encoding
@@ -306,7 +306,7 @@ class DetectDialect(Action):
         return [SlotSet("dialect", dialects)]
 
 class ClassifierPipeline_knn():
-    """Load in calssifier & encoders"""
+    """Load in classifier & encoders"""
 
     def name(self) -> Text:
         """Unique identifier of the classfier """
@@ -318,9 +318,16 @@ class ClassifierPipeline_knn():
         converts input data to the same format'''
         # read in empty dataframe with correct columns
         encoding_sample = pd.read_csv("model_bits\empty_data_stucture.csv").iloc[:, 3:]
+        
+        # transpose input data
+        input_data = pd.DataFrame(input_data).transpose()
+
+        # one hot encode input data & standardize column names
+        encoded_input_data = pd.get_dummies(input_data)
+        encoded_input_data.columns = [col.replace(' ','_') for col in encoded_input_data.columns]
 
         # encode it
-        encoded_data = encoding_sample.align(pd.get_dummies(input_data),
+        encoded_data = encoding_sample.align(encoded_input_data,
         join = "left", axis = 1)
 
         # convert na's to 0 (since we're one hot encoding)
@@ -334,7 +341,7 @@ class ClassifierPipeline_knn():
         state_knn = load("model_bits\state_level_knn.joblib")
 
         # encode input data
-        encoded_data = self.encode_answers(data)
+        encoded_data = self.encode_answers(input_data = data)
 
         pred = state_knn.predict_proba(encoded_data)
         top_3 = np.argsort(pred, axis=1)[ : ,-3 : ]
