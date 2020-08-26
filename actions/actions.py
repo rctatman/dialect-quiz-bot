@@ -317,7 +317,7 @@ class ClassifierPipeline_knn():
         '''Reads in the sample encoded data w/ correct columns and 
         converts input data to the same format'''
         # read in empty dataframe with correct columns
-        encoding_sample = pd.read_csv("model_bits\empty_data_stucture.csv").iloc[:, 3:]
+        encoding_sample = pd.read_csv("empty_data_stucture.csv").iloc[:, 3:]
         
         # transpose input data
         input_data = pd.DataFrame(input_data).transpose()
@@ -338,7 +338,7 @@ class ClassifierPipeline_knn():
     def get_top_3_knn(self, data):
         '''Read in the knn model and apply it to correctly formatted sample data'''
         # read in model
-        state_knn = load("model_bits\state_level_knn.joblib")
+        state_knn = load("state_level_knn.joblib")
 
         # encode input data
         encoded_data = self.encode_answers(input_data = data)

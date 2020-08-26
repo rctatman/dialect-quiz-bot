@@ -6,6 +6,8 @@ WORKDIR /app
 
 # Copy any additional custom requirements, if necessary (uncomment next line)
 COPY actions/requirements-actions.txt ./
+COPY actions/empty_data_stucture.csv ./
+COPY actions/state_level_knn.joblib ./
 
 # Change back to root user to install dependencies
 USER root
