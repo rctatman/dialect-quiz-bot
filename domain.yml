@@ -123,7 +123,7 @@ responses:
   utter_iamabot:
   - text: I am a bot, powered by Rasa.
   utter_dialect_value:
-  - text: You sound like you come from {dialect}
+  - text: I hope you had fun taking the quiz! {dialect}
   utter_ask_bug:
   - text: What do you call the small bug (technically a crustacean) that’s often found
       under logs and can roll into a little ball?
