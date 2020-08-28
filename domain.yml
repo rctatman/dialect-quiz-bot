@@ -102,7 +102,8 @@ responses:
   - text: Hi! Do you want to take a quiz to learn more about where in the United States
       people talk the most like you? Before you get started, you should know that
       this quiz is being developed as part of a livecoding project. Any input you
-      share may be seen live on stream.
+      share may be seen live on stream. DO NOT continue if you're not ok with your
+      responses being seen publicly.,
   utter_submit:
   - text: All done!
   utter_slots_values:
