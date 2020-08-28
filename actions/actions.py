@@ -302,6 +302,10 @@ class DetectDialect(Action):
         # classify test case
         dialects = ClassifierPipeline_knn().get_top_3_knn(formatted_responses)
 
+        state_1, state_2, state_3 = dialects
+
+        dialects = f"The state that mostly closely matches your language use is {state_1}, followed by {state_2} and {state_3}"
+
         # always guess US for now
         return [SlotSet("dialect", dialects)]
 
