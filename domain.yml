@@ -11,7 +11,7 @@ intents:
 - thankyou
 - greet
 - bot_challenge
-- get_started_step1
+- toxic_language
 entities:
 - bug
 - beverage
@@ -172,6 +172,7 @@ responses:
   - text: What do you call the thing you drink water from in a school?
 actions:
 - detect_dialect
+- pause_conversation
 - utter_greet
 - utter_iamabot
 - utter_dialect_value
@@ -185,7 +186,6 @@ actions:
 - utter_chitchat
 - utter_ask_continue
 - utter_default
-- utter_livecode_warning
 - utter_ask_cot_caught
 - utter_ask_rain_sun
 - utter_ask_crawfish

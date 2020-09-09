@@ -12,6 +12,7 @@ intents:
 - thankyou
 - greet
 - bot_challenge
+- toxic_language
 
 entities:
 - bug
@@ -175,6 +176,7 @@ responses:
 
 actions:
 - detect_dialect
+- pause_conversation
 - utter_greet
 - utter_iamabot
 - utter_dialect_value

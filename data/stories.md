@@ -20,8 +20,7 @@
 ## bot challenge
 * bot_challenge
   - utter_iamabot
-  
 
-## prompt for getting started
-* get_started_step1
-    - action_greet_user
+## toxic language
+* toxic_language
+  - pause_conversation

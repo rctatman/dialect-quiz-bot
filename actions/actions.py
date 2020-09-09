@@ -3,7 +3,7 @@ from typing import Dict, Text, Any, List, Union, Optional
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.forms import FormAction
-from rasa_sdk.events import SlotSet
+from rasa_sdk.events import SlotSet, ConversationPaused
 
 from joblib import load
 import numpy as np
@@ -257,7 +257,7 @@ class DetectDialect(Action):
     """Detect the users dialect"""
 
     def name(self) -> Text:
-        """Unique identifier of the form"""
+        """Unique identifier of the action"""
 
         return "detect_dialect"
 
@@ -352,3 +352,17 @@ class ClassifierPipeline_knn():
         results = [state_knn.classes_[i] for i in top_3]
 
         return(results[0].tolist())
+
+
+class PauseConversation(Action):
+    """Pause the conversation so the the 
+    assistant won't respond"""
+
+    def name(self) -> Text:
+        """Unique identifier of the action"""
+
+        return "pause_conversation"
+
+    def run(self, dispatcher, tracker, domain):
+
+        return [ConversationPaused()]
