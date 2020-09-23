@@ -80,6 +80,7 @@
 - do you have something else
 - no this does not work for me
 - nope
+- nah
 
 ## intent:greet
 - Hi
@@ -195,3 +196,4 @@
 - uh okay thank you good bye
 - thank you bye
 - um okay thank you good bye
+- cool thanks
