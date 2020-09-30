@@ -4,8 +4,6 @@
 - ye
 - uh yes
 - let's do it
-- yeah
-- uh yes
 - um yes
 - yes knocking
 - that's correct
@@ -142,6 +140,155 @@
 - are [yinz](second_person_plural) ready to go
 - are [y'all](second_person_plural) ready to do
 - are [y'all](second_person_plural) ready to go
+- either
+- law
+- boy
+- different
+- other
+- same
+- y'all
+- yins
+- you
+- you 'uns
+- you all
+- you guys
+- you lot
+- yous, youse
+- car boot sale
+- carport sale
+- garage sale
+- jumble (sale)
+- patio sale
+- rummage sale
+- sidewalk sale
+- stoop sale
+- tag sale
+- thrift sale
+- yard sale
+- beltway
+- berm
+- curb strip
+- I have no word for this
+- parking
+- terrace
+- tree lawn
+- verge
+- sandwich
+- baguette
+- bomber
+- grinder
+- hero
+- hoagie
+- Italian sandwich
+- poor boy
+- sarney
+- sub
+- firefly
+- I use lightning bug and firefly interchangeably
+- lightning bug
+- peenie wallie
+- craw
+- crawdad
+- crawfish
+- crayfish
+- crowfish
+- I have no word for this critter
+- mudbug
+- gymshoes
+- I have no general word for this
+- jumpers
+- runners
+- running shoes
+- sand shoes
+- shoes
+- sneakers
+- tennis shoes
+- basketball bug
+- centipede
+- doodle bug
+- I have no idea what this creature is
+- I know what this creature is, but have no word for it
+- millipede
+- pill bug
+- potato bug
+- roll-up bug
+- roly poly
+- sow bug
+- twiddle bug
+- wood louse
+- catercorner
+- catty-corner
+- I can only use \"diagonal\" for this
+- I have no term for this
+- kitacorner
+- kitty-corner
+- kitty cross
+- kitty wampus
+- a freeway has limited access (no stop lights, no intersections), whereas a highway can have stop lights and intersections
+- a freeway is bigger than a highway
+- a freeway is free (i.e., doesn't charge tolls); a highway isn't
+- expressway
+- freeway
+- highway
+- parkway
+- throughway/thru-way
+- turnpike
+- fox's wedding
+- I have no term or expression for this
+- liquid sun
+- monkey's wedding
+- pineapple rain
+- sunshower
+- the devil is beating his wife
+- the wolf is giving birth
+- both
+- frosting
+- icing
+- icing is thinner than frosting, white, and/or made of powdered sugar and milk or lemon juice
+- neither
+- access road
+- feeder road
+- frontage road
+- gateway
+- I've never heard of this concept
+- service road
+- we have them but I have no word for them
+- bubbler
+- drinking fountain
+- water bubbler
+- water fountain
+- cocola
+- coke
+- dope
+- fizzy drink
+- lemonade
+- pop
+- soda
+- soft drink
+- tonic
+- curiosity delay
+- gapers' block
+- gapers' delay
+- gawk block
+- Lookie Lou
+- rubberneck
+- rubbernecking
+- rubbernecking is the thing you do, not the traffice jam
+- cabbage night
+- devil's eve
+- devil's night
+- gate night
+- goosy night
+- mischief night
+- trick night
+- beer barn
+- beverage barn
+- bootlegger
+- brew thru
+- I have never heard of such a thing
+- party barn
+- we have these in my area, but we have no special term for them
+- I don't know
 
 ## intent:stop
 - ok then you cant help me
@@ -164,7 +311,6 @@
 - and that's it?
 - nothing else?
 - I want to stop
-- stop
 - quit
 - sotp
 

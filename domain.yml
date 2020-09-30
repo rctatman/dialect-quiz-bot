@@ -112,6 +112,8 @@ responses:
       {verge}\n{brew_thru}\n{water_fountain}"
   utter_noworries:
   - text: You are welcome :)
+  utter_goodbye:
+  - text: Bye!
   utter_chitchat:
   - text: chitchat
   utter_ask_continue:
@@ -170,6 +172,8 @@ responses:
   - text: What do you call a drive-through liquor store?
   utter_ask_water_fountain:
   - text: What do you call the thing you drink water from in a school?
+  utter_ask_continue:
+  - text: Do you want to resume the quiz?
 actions:
 - detect_dialect
 - pause_conversation

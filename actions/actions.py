@@ -42,83 +42,103 @@ class ElicitationForm(FormAction):
             "bug":[self.from_entity(
                 entity="bug", 
                 intent="inform"),
-                self.from_text()],
+                self.from_text(
+                intent="inform")],
             "beverage": [self.from_entity(
                 entity="beverage", 
                 intent="inform"), 
-                self.from_text()],
+                self.from_text(
+                intent="inform")],
             "second_person_plural": [self.from_entity(
                 entity="second_person_plural", 
                 intent="inform"),
-                self.from_text()],
+                self.from_text(
+                intent="inform")],
             "cot_caught": [self.from_entity(
                 entity="cot_caught", 
                 intent="inform"),
-                self.from_text()],
+                self.from_text(
+                intent="inform")],
             "rain_sun": [self.from_entity(
                 entity="rain_sun", 
                 intent="inform"),
-                self.from_text()],
+                self.from_text(
+                intent="inform")],
             "crawfish": [self.from_entity(
                 entity="crawfish", 
                 intent="inform"),
-                self.from_text()],
+                self.from_text(
+                intent="inform")],
             "halloween": [self.from_entity(
                 entity="halloween", 
                 intent="inform"),
-                self.from_text()],
+                self.from_text(
+                intent="inform")],
             "sandwich": [self.from_entity(
                 entity="sandwich", 
                 intent="inform"),
-                self.from_text()],
+                self.from_text(
+                intent="inform")],
             "side_road": [self.from_entity(
                 entity="side_road", 
                 intent="inform"),
-                self.from_text()],
+                self.from_text(
+                intent="inform")],
             "shoes": [self.from_entity(
                 entity="shoes", 
                 intent="inform"),
-                self.from_text()],
+                self.from_text(
+                intent="inform")],
             "highway": [self.from_entity(
                 entity="highway", 
                 intent="inform"),
-                self.from_text()],
+                self.from_text(
+                intent="inform")],
             "yard_sale": [self.from_entity(
                 entity="yard_sale", 
                 intent="inform"),
-                self.from_text()],
+                self.from_text(
+                intent="inform")],
             "rubbernecking": [self.from_entity(
                 entity="rubbernecking", 
                 intent="inform"),
-                self.from_text()],
+                self.from_text(
+                intent="inform")],
             "frosting": [self.from_entity(
                 entity="frosting", 
                 intent="inform"),
-                self.from_text()],
+                self.from_text(
+                intent="inform")],
             "lawyer": [self.from_entity(
                 entity="lawyer", 
                 intent="inform"),
-                self.from_text()],
+                self.from_text(
+                intent="inform")],
             "kitty_corner": [self.from_entity(
                 entity="kitty_corner", 
                 intent="inform"),
-                self.from_text()],
+                self.from_text(
+                intent="inform")],
             "firefly": [self.from_entity(
                 entity="firefly", 
                 intent="inform"),
-                self.from_text()],
+                self.from_text(
+                intent="inform")],
             "verge": [self.from_entity(
                 entity="verge", 
                 intent="inform"),
-                self.from_text()],
+                self.from_text(
+                intent="inform")],
             "brew_thru": [self.from_entity(
                 entity="brew_thru", 
                 intent="inform"),
-                self.from_text()],
+                self.from_text(
+                intent="inform")],
             "water_fountain": [self.from_entity(
                 entity="water_fountain", 
                 intent="inform"),
-                self.from_text()]
+                self.from_text(
+                intent="inform")]
         }
 
     # validate user answers
