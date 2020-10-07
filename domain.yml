@@ -73,6 +73,8 @@ slots:
   rain_sun:
     type: unfeaturized
     auto_fill: false
+  requested_slot:
+    type: unfeaturized
   rubbernecking:
     type: unfeaturized
     auto_fill: false
@@ -117,7 +119,7 @@ responses:
   utter_chitchat:
   - text: chitchat
   utter_ask_continue:
-  - text: Do you want to continue?
+  - text: Do you want to continue the quiz?
   utter_default:
   - text: Sorry, I didn't understand you, please try input something else
   utter_greet:
@@ -125,7 +127,7 @@ responses:
   utter_iamabot:
   - text: I am a bot, powered by Rasa.
   utter_dialect_value:
-  - text: You sound like you come from {dialect}
+  - text: Here are your results! {dialect}
   utter_ask_bug:
   - text: What do you call the small bug (technically a crustacean) that’s often found
       under logs and can roll into a little ball?
@@ -172,8 +174,6 @@ responses:
   - text: What do you call a drive-through liquor store?
   utter_ask_water_fountain:
   - text: What do you call the thing you drink water from in a school?
-  utter_ask_continue:
-  - text: Do you want to resume the quiz?
 actions:
 - detect_dialect
 - pause_conversation
@@ -208,5 +208,6 @@ actions:
 - utter_ask_brew_thru
 - utter_ask_water_fountain
 - action_greet_user
+- utter_goodbye
 forms:
 - elicitation_form

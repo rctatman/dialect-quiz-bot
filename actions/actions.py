@@ -148,7 +148,7 @@ class ElicitationForm(FormAction):
         return{"lawyer":["either","other","law","boy"],
         "cot_caught":["different","other","same"],
         "second_person_plural":["other","y'all","yins",
-        "you","you 'uns","you all","you guys","you lot",
+        "you","you'uns","you all","you guys","you lot",
         "yous, youse"],
         "yard_sale":["car boot","car boot sale",
         "carport sale","garage sale","jumble (sale)",
@@ -341,7 +341,7 @@ class ClassifierPipeline_knn():
         '''Reads in the sample encoded data w/ correct columns and 
         converts input data to the same format'''
         # read in empty dataframe with correct columns
-        encoding_sample = pd.read_csv("empty_data_stucture.csv").iloc[:, 3:]
+        encoding_sample = pd.read_csv("actions\empty_data_stucture.csv").iloc[:, 3:]
         
         # transpose input data
         input_data = pd.DataFrame(input_data).transpose()
@@ -362,7 +362,7 @@ class ClassifierPipeline_knn():
     def get_top_3_knn(self, data):
         '''Read in the knn model and apply it to correctly formatted sample data'''
         # read in model
-        state_knn = load("state_level_knn.joblib")
+        state_knn = load("actions\state_level_knn.joblib")
 
         # encode input data
         encoded_data = self.encode_answers(input_data = data)
