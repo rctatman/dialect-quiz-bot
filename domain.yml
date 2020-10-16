@@ -36,48 +36,70 @@ entities:
 slots:
   beverage:
     type: any
+    influence_conversation: false
   brew_thru:
     type: any
+    influence_conversation: false
   bug:
     type: any
+    influence_conversation: false
   cot_caught:
     type: any
+    influence_conversation: false
   crawfish:
     type: any
+    influence_conversation: false
   dialect:
     type: any
+    influence_conversation: false
   firefly:
     type: any
+    influence_conversation: false
   frosting:
     type: any
+    influence_conversation: false
   halloween:
     type: any
+    influence_conversation: false
   highway:
     type: any
+    influence_conversation: false
   kitty_corner:
     type: any
+    influence_conversation: false
   lawyer:
     type: any
+    influence_conversation: false
   rain_sun:
     type: any
+    influence_conversation: false
   requested_slot:
     type: any
+    influence_conversation: false
   rubbernecking:
     type: any
+    influence_conversation: false
   sandwich:
     type: any
+    influence_conversation: false
   second_person_plural:
     type: any
+    influence_conversation: false
   shoes:
     type: any
+    influence_conversation: false
   side_road:
     type: any
+    influence_conversation: false
   verge:
     type: any
+    influence_conversation: false
   water_fountain:
     type: any
+    influence_conversation: false
   yard_sale:
     type: any
+    influence_conversation: false
 responses:
   utter_start_quiz:
   - text: Hi! Do you want to take a quiz to learn more about where in the United States
