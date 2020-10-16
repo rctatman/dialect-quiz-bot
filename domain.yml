@@ -36,69 +36,48 @@ entities:
 slots:
   beverage:
     type: any
-    auto_fill: false
   brew_thru:
     type: any
-    auto_fill: false
   bug:
     type: any
-    auto_fill: false
   cot_caught:
     type: any
-    auto_fill: false
   crawfish:
     type: any
-    auto_fill: false
   dialect:
     type: any
-    auto_fill: false
   firefly:
     type: any
-    auto_fill: false
   frosting:
     type: any
-    auto_fill: false
   halloween:
     type: any
-    auto_fill: false
   highway:
     type: any
-    auto_fill: false
   kitty_corner:
     type: any
-    auto_fill: false
   lawyer:
     type: any
-    auto_fill: false
   rain_sun:
     type: any
-    auto_fill: false
   requested_slot:
     type: any
   rubbernecking:
     type: any
-    auto_fill: false
   sandwich:
     type: any
-    auto_fill: false
   second_person_plural:
     type: any
-    auto_fill: false
   shoes:
     type: any
-    auto_fill: false
   side_road:
     type: any
-    auto_fill: false
   verge:
     type: any
-    auto_fill: false
   water_fountain:
     type: any
-    auto_fill: false
   yard_sale:
     type: any
-    auto_fill: false
 responses:
   utter_start_quiz:
   - text: Hi! Do you want to take a quiz to learn more about where in the United States
