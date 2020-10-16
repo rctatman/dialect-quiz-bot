@@ -1,9 +1,17 @@
 language: en
 
-pipeline: supervised_embeddings
+pipeline: 
+  - name: "SpacyNLP"
+    model: "en_core_web_md"
+  - name: "SpacyTokenizer"
+  - name: "SpacyFeaturizer"
+    "pooling": "mean"
+  - name: "DIETClassifier"
+  
 
 policies:
-  - name: FallbackPolicy
   - name: MemoizationPolicy
-  - name: FormPolicy
-  - name: MappingPolicy
+  - name: TEDPolicy
+    max_history: 5
+    epochs: 200
+  - name: RulePolicy

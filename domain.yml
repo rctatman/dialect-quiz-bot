@@ -1,6 +1,6 @@
 session_config:
   session_expiration_time: 0
-  carry_over_slots_to_new_session: true
+  carry_over_slots_to_new_session: false
 intents:
 - chitchat:
     use_entities: []
@@ -35,69 +35,69 @@ entities:
 - water_fountain
 slots:
   beverage:
-    type: unfeaturized
+    type: any
     auto_fill: false
   brew_thru:
-    type: unfeaturized
+    type: any
     auto_fill: false
   bug:
-    type: unfeaturized
+    type: any
     auto_fill: false
   cot_caught:
-    type: unfeaturized
+    type: any
     auto_fill: false
   crawfish:
-    type: unfeaturized
+    type: any
     auto_fill: false
   dialect:
-    type: unfeaturized
+    type: any
     auto_fill: false
   firefly:
-    type: unfeaturized
+    type: any
     auto_fill: false
   frosting:
-    type: unfeaturized
+    type: any
     auto_fill: false
   halloween:
-    type: unfeaturized
+    type: any
     auto_fill: false
   highway:
-    type: unfeaturized
+    type: any
     auto_fill: false
   kitty_corner:
-    type: unfeaturized
+    type: any
     auto_fill: false
   lawyer:
-    type: unfeaturized
+    type: any
     auto_fill: false
   rain_sun:
-    type: unfeaturized
+    type: any
     auto_fill: false
   requested_slot:
-    type: unfeaturized
+    type: any
   rubbernecking:
-    type: unfeaturized
+    type: any
     auto_fill: false
   sandwich:
-    type: unfeaturized
+    type: any
     auto_fill: false
   second_person_plural:
-    type: unfeaturized
+    type: any
     auto_fill: false
   shoes:
-    type: unfeaturized
+    type: any
     auto_fill: false
   side_road:
-    type: unfeaturized
+    type: any
     auto_fill: false
   verge:
-    type: unfeaturized
+    type: any
     auto_fill: false
   water_fountain:
-    type: unfeaturized
+    type: any
     auto_fill: false
   yard_sale:
-    type: unfeaturized
+    type: any
     auto_fill: false
 responses:
   utter_start_quiz:
