@@ -1,8 +1,7 @@
 from typing import Dict, Text, Any, List, Union, Optional
 
-from rasa_sdk import Action, Tracker
+from rasa_sdk import Action, Tracker, FormValidationAction
 from rasa_sdk.executor import CollectingDispatcher
-from rasa_sdk.forms import FormAction
 from rasa_sdk.events import SlotSet, ConversationPaused
 
 from joblib import load
@@ -13,133 +12,15 @@ from sklearn.preprocessing import LabelEncoder
 import sklearn.neighbors
 from fuzzywuzzy import process
 
-class ElicitationForm(FormAction):
-    """Example of a custom form action"""
+class ValidateElicitationForm(FormValidationAction):
+    """Validating our form input using 
+    multiple choice answers from Harvard 
+    Dialect Study"""
 
     def name(self) -> Text:
         """Unique identifier of the form"""
 
-        return "elicitation_form"
-
-    @staticmethod
-    def required_slots(tracker: Tracker) -> List[Text]:
-        """A list of required slots that the form has to fill"""
-
-        return ["bug", "beverage", "second_person_plural", 
-        "cot_caught", "rain_sun", "crawfish", "halloween",
-        "sandwich", "side_road", "shoes", "highway", "yard_sale",
-        "rubbernecking", "frosting", "lawyer", "kitty_corner",
-        "firefly", "verge", "brew_thru", "water_fountain"]
-
-    def slot_mappings(self) -> Dict[Text, Union[Dict, List[Dict]]]:
-        """A dictionary to map required slots to
-            - an extracted entity
-            - intent: value pairs
-            - a whole message
-            or a list of them, where a first match will be picked"""
-
-        return {
-            "bug":[self.from_entity(
-                entity="bug", 
-                intent="inform"),
-                self.from_text(
-                intent="inform")],
-            "beverage": [self.from_entity(
-                entity="beverage", 
-                intent="inform"), 
-                self.from_text(
-                intent="inform")],
-            "second_person_plural": [self.from_entity(
-                entity="second_person_plural", 
-                intent="inform"),
-                self.from_text(
-                intent="inform")],
-            "cot_caught": [self.from_entity(
-                entity="cot_caught", 
-                intent="inform"),
-                self.from_text(
-                intent="inform")],
-            "rain_sun": [self.from_entity(
-                entity="rain_sun", 
-                intent="inform"),
-                self.from_text(
-                intent="inform")],
-            "crawfish": [self.from_entity(
-                entity="crawfish", 
-                intent="inform"),
-                self.from_text(
-                intent="inform")],
-            "halloween": [self.from_entity(
-                entity="halloween", 
-                intent="inform"),
-                self.from_text(
-                intent="inform")],
-            "sandwich": [self.from_entity(
-                entity="sandwich", 
-                intent="inform"),
-                self.from_text(
-                intent="inform")],
-            "side_road": [self.from_entity(
-                entity="side_road", 
-                intent="inform"),
-                self.from_text(
-                intent="inform")],
-            "shoes": [self.from_entity(
-                entity="shoes", 
-                intent="inform"),
-                self.from_text(
-                intent="inform")],
-            "highway": [self.from_entity(
-                entity="highway", 
-                intent="inform"),
-                self.from_text(
-                intent="inform")],
-            "yard_sale": [self.from_entity(
-                entity="yard_sale", 
-                intent="inform"),
-                self.from_text(
-                intent="inform")],
-            "rubbernecking": [self.from_entity(
-                entity="rubbernecking", 
-                intent="inform"),
-                self.from_text(
-                intent="inform")],
-            "frosting": [self.from_entity(
-                entity="frosting", 
-                intent="inform"),
-                self.from_text(
-                intent="inform")],
-            "lawyer": [self.from_entity(
-                entity="lawyer", 
-                intent="inform"),
-                self.from_text(
-                intent="inform")],
-            "kitty_corner": [self.from_entity(
-                entity="kitty_corner", 
-                intent="inform"),
-                self.from_text(
-                intent="inform")],
-            "firefly": [self.from_entity(
-                entity="firefly", 
-                intent="inform"),
-                self.from_text(
-                intent="inform")],
-            "verge": [self.from_entity(
-                entity="verge", 
-                intent="inform"),
-                self.from_text(
-                intent="inform")],
-            "brew_thru": [self.from_entity(
-                entity="brew_thru", 
-                intent="inform"),
-                self.from_text(
-                intent="inform")],
-            "water_fountain": [self.from_entity(
-                entity="water_fountain", 
-                intent="inform"),
-                self.from_text(
-                intent="inform")]
-        }
+        return "validate_elicitation_form"
 
     # validate user answers
     @staticmethod
@@ -256,21 +137,6 @@ class ElicitationForm(FormAction):
     validate_brew_thru = create_validation_function(name_of_slot = "brew_thru")
     validate_water_fountain = create_validation_function(name_of_slot = "water_fountain")
     validate_bug = create_validation_function(name_of_slot = "bug")
-
-    def submit(
-        self,
-        dispatcher: CollectingDispatcher,
-        tracker: Tracker,
-        domain: Dict[Text, Any],
-    ) -> List[Dict]:
-        """Define what the form has to do
-            after all required slots are filled"""
-
-        # utter submit template
-        dispatcher.utter_message(template="utter_submit")
-
-        return []
-
 
 
 class DetectDialect(Action):

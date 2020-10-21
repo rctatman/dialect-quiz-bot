@@ -210,5 +210,67 @@ actions:
 - utter_ask_water_fountain
 - action_greet_user
 - utter_goodbye
+- validate_elicitation_form
 forms:
-- elicitation_form
+  elicitation_form:
+    bug:
+      - type: from_text 
+        intent: inform
+    beverage: 
+      - type: from_text 
+        intent: inform
+    second_person_plural:
+      - type: from_text 
+        intent: inform
+    cot_caught:
+      - type: from_text 
+        intent: inform
+    rain_sun:
+      - type: from_text 
+        intent: inform
+    crawfish:
+      - type: from_text 
+        intent: inform
+    halloween:
+      - type: from_text 
+        intent: inform
+    sandwich:
+      - type: from_text 
+        intent: inform
+    side_road:
+      - type: from_text 
+        intent: inform
+    shoes:
+      - type: from_text 
+        intent: inform
+    highway:
+      - type: from_text 
+        intent: inform
+    yard_sale:
+      - type: from_text 
+        intent: inform
+    rubbernecking:
+      - type: from_text 
+        intent: inform
+    frosting:
+      - type: from_text 
+        intent: inform
+    lawyer:
+      - type: from_text 
+        intent: inform
+    kitty_corner:
+      - type: from_text 
+        intent: inform
+    firefly:
+      - type: from_text 
+        intent: inform
+    verge:
+      - type: from_text 
+        intent: inform
+    brew_thru:
+      - type: from_text 
+        intent: inform
+    water_fountain:
+      - type: from_text 
+        intent: inform
+
