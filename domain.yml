@@ -1,6 +1,6 @@
 session_config:
   session_expiration_time: 0
-  carry_over_slots_to_new_session: true
+  carry_over_slots_to_new_session: false
 intents:
 - chitchat:
     use_entities: []
@@ -35,70 +35,71 @@ entities:
 - water_fountain
 slots:
   beverage:
-    type: unfeaturized
-    auto_fill: false
+    type: any
+    influence_conversation: false
   brew_thru:
-    type: unfeaturized
-    auto_fill: false
+    type: any
+    influence_conversation: false
   bug:
-    type: unfeaturized
-    auto_fill: false
+    type: any
+    influence_conversation: false
   cot_caught:
-    type: unfeaturized
-    auto_fill: false
+    type: any
+    influence_conversation: false
   crawfish:
-    type: unfeaturized
-    auto_fill: false
+    type: any
+    influence_conversation: false
   dialect:
-    type: unfeaturized
-    auto_fill: false
+    type: any
+    influence_conversation: false
   firefly:
-    type: unfeaturized
-    auto_fill: false
+    type: any
+    influence_conversation: false
   frosting:
-    type: unfeaturized
-    auto_fill: false
+    type: any
+    influence_conversation: false
   halloween:
-    type: unfeaturized
-    auto_fill: false
+    type: any
+    influence_conversation: false
   highway:
-    type: unfeaturized
-    auto_fill: false
+    type: any
+    influence_conversation: false
   kitty_corner:
-    type: unfeaturized
-    auto_fill: false
+    type: any
+    influence_conversation: false
   lawyer:
-    type: unfeaturized
-    auto_fill: false
+    type: any
+    influence_conversation: false
   rain_sun:
-    type: unfeaturized
-    auto_fill: false
+    type: any
+    influence_conversation: false
   requested_slot:
-    type: unfeaturized
+    type: any
+    influence_conversation: false
   rubbernecking:
-    type: unfeaturized
-    auto_fill: false
+    type: any
+    influence_conversation: false
   sandwich:
-    type: unfeaturized
-    auto_fill: false
+    type: any
+    influence_conversation: false
   second_person_plural:
-    type: unfeaturized
-    auto_fill: false
+    type: any
+    influence_conversation: false
   shoes:
-    type: unfeaturized
-    auto_fill: false
+    type: any
+    influence_conversation: false
   side_road:
-    type: unfeaturized
-    auto_fill: false
+    type: any
+    influence_conversation: false
   verge:
-    type: unfeaturized
-    auto_fill: false
+    type: any
+    influence_conversation: false
   water_fountain:
-    type: unfeaturized
-    auto_fill: false
+    type: any
+    influence_conversation: false
   yard_sale:
-    type: unfeaturized
-    auto_fill: false
+    type: any
+    influence_conversation: false
 responses:
   utter_start_quiz:
   - text: Hi! Do you want to take a quiz to learn more about where in the United States
@@ -209,5 +210,67 @@ actions:
 - utter_ask_water_fountain
 - action_greet_user
 - utter_goodbye
+- validate_elicitation_form
 forms:
-- elicitation_form
+  elicitation_form:
+    bug:
+      - type: from_text 
+        intent: inform
+    beverage: 
+      - type: from_text 
+        intent: inform
+    second_person_plural:
+      - type: from_text 
+        intent: inform
+    cot_caught:
+      - type: from_text 
+        intent: inform
+    rain_sun:
+      - type: from_text 
+        intent: inform
+    crawfish:
+      - type: from_text 
+        intent: inform
+    halloween:
+      - type: from_text 
+        intent: inform
+    sandwich:
+      - type: from_text 
+        intent: inform
+    side_road:
+      - type: from_text 
+        intent: inform
+    shoes:
+      - type: from_text 
+        intent: inform
+    highway:
+      - type: from_text 
+        intent: inform
+    yard_sale:
+      - type: from_text 
+        intent: inform
+    rubbernecking:
+      - type: from_text 
+        intent: inform
+    frosting:
+      - type: from_text 
+        intent: inform
+    lawyer:
+      - type: from_text 
+        intent: inform
+    kitty_corner:
+      - type: from_text 
+        intent: inform
+    firefly:
+      - type: from_text 
+        intent: inform
+    verge:
+      - type: from_text 
+        intent: inform
+    brew_thru:
+      - type: from_text 
+        intent: inform
+    water_fountain:
+      - type: from_text 
+        intent: inform
+
