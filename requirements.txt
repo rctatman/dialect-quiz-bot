@@ -1,7 +1,7 @@
 joblib==0.15.1
 fuzzywuzzy==0.17.0
 pandas==1.0.1
-sanic==19.12.2
+sanic==20.12.7
 numpy==1.18.1
 rasa==2.0.2
 rasa_sdk==2.0.0
