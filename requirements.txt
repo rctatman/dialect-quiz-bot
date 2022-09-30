@@ -1,4 +1,4 @@
-joblib==0.15.1
+joblib==1.2.0
 fuzzywuzzy==0.17.0
 pandas==1.0.1
 sanic==19.12.2
